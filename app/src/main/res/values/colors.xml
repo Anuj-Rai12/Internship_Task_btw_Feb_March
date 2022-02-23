@@ -9,7 +9,9 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="red_color">#D50000</color>
+    <color name="light_pink_color">#F8EEEF</color>
     <color name="sky_blue_color">#15CCD3</color>
+    <color name="light_sky_blue_color">#E9FAFC</color>
     <color name="green_color">#64DD17</color>
     <color name="grey_color">#737373</color>
 
