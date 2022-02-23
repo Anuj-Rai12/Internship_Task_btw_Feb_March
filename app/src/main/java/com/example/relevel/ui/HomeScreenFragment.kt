@@ -9,7 +9,9 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.relevel.R
+import com.example.relevel.adaptor.MainAdaptor
 import com.example.relevel.databinding.HomeSrcLayoutBinding
 import com.example.relevel.model.users.CilentDataResponse
 import com.example.relevel.utils.*
@@ -21,6 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeScreenFragment : Fragment(R.layout.home_src_layout) {
     private lateinit var binding: HomeSrcLayoutBinding
     private val viewModel: MainViewModel by viewModels()
+    private lateinit var mainAdaptor: MainAdaptor
 
     @SuppressLint("SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.M)
@@ -40,8 +43,19 @@ class HomeScreenFragment : Fragment(R.layout.home_src_layout) {
                 customMsg(response)
             }
         }
-
+        setRecycleView()
         getData()
+    }
+
+    private fun setRecycleView() {
+        binding.mainRecycleView.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(requireContext())
+            mainAdaptor = MainAdaptor {
+                Log.i(TAG, "setRecycleView: $it")
+            }
+            adapter = mainAdaptor
+        }
     }
 
 
@@ -61,19 +75,24 @@ class HomeScreenFragment : Fragment(R.layout.home_src_layout) {
                 }
                 is ResponseSealed.Success -> {
                     showWidgets()
-                    customMsg(
-                        "Connected",
-                        length = Snackbar.LENGTH_SHORT,
-                        color = R.color.green_color
-                    )
                     it.data?.let { res ->
                         val item = res as CilentDataResponse
                         binding.versionTxt.text = item.data.version.toString()
                         setUpToolBar(item)
+                        setData(item)
+
                         return@let
                     } ?: customMsg(err = "Failed To Load Data")
                 }
             }
+        }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private fun setData(item: CilentDataResponse) {
+        viewModel.getSealedClass(item, requireActivity(), getString(R.string.aud_title)).apply {
+            mainAdaptor.notifyDataSetChanged()
+            mainAdaptor.submitList(this)
         }
     }
 

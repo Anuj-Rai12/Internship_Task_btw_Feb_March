@@ -5,8 +5,10 @@
     <string name="mem_txt">मेम्बर</string>
     <string name="host_txt">होस्ट</string>
     <string name="speaker_txt">स्पीकर</string>
+    <string name="mod_txt">मोदेरोटर</string>
     <string name="lev_txt">बहार जाए</string>
     <string name="invite_txt">आमन्त कए</string>
     <string name="profile_txt">Profile Pic</string>
-
+    <string name="mem_tpy_txt">Member</string>
+    <string name="host_tpy_txt">Host</string>
 </resources>

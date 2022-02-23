@@ -1,9 +1,12 @@
 package com.example.relevel.viewModel
 
 import android.app.Application
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.*
+import com.example.relevel.model.users.CilentDataResponse
 import com.example.relevel.repo.MainRepository
+import com.example.relevel.usecase.MainUserCase
 import com.example.relevel.utils.Event
 import com.example.relevel.utils.ResponseSealed
 import com.example.relevel.utils.TAG
@@ -18,7 +21,8 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val mainRepository: MainRepository,
     private val savedStateHandle: SavedStateHandle,
-    private val application: Application
+    private val application: Application,
+    private val userCase: MainUserCase
 ) : ViewModel() {
 
     private val _getApiData = MutableLiveData<ResponseSealed<out Any?>>()
@@ -44,6 +48,8 @@ class MainViewModel @Inject constructor(
 
     }
 
+    fun getSealedClass(data: CilentDataResponse, context: Context, title: String)=
+        userCase.getApiData(data, context, title)
 
     override fun onCleared() {
         super.onCleared()

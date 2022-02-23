@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import coil.load
 import coil.transform.CircleCropTransformation
+import coil.transform.RoundedCornersTransformation
 import com.example.relevel.R
 import com.google.android.material.snackbar.Snackbar
 
@@ -32,13 +33,17 @@ fun View.showSandbar(msg: String, length: Int = Snackbar.LENGTH_SHORT, color: In
 }
 
 
-fun ImageView.loadImage(url: String) {
+fun ImageView.loadImage(url: String, round: Float? = null) {
     this.load(url) {
-        transformations(
-            CircleCropTransformation(),
-            //GrayscaleTransformation() // e.t.c
-        )
         placeholder(R.drawable.blankprofile)
+        crossfade(true)
+        crossfade(1000)
+        if (round == null)
+            transformations(CircleCropTransformation())
+        else
+            transformations(RoundedCornersTransformation(round))
+
+        error(R.drawable.blankprofile)
         build()
     }
 }
