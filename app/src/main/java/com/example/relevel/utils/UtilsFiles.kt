@@ -17,8 +17,11 @@ const val TAG = "ANUJ"
 object AllConstString {
     const val Base = "https://api.bolkarapp.com/"
     const val Get_All_Data = "live/room.json"
+    const val emg_victory = 0x270C
+    fun getEmojiByUnicode(unicode: Int) = String(Character.toChars(unicode))
     fun getImageProfileUrl(u: String) = "https://cdn1.bolkarapp.com/uploads/dp/$u.jpg"
 }
+
 
 fun View.showSandbar(msg: String, length: Int = Snackbar.LENGTH_SHORT, color: Int? = null) {
     val snackBar = Snackbar.make(this, msg, length)

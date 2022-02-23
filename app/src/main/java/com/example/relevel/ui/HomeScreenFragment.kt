@@ -1,5 +1,6 @@
 package com.example.relevel.ui
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -37,6 +38,7 @@ class HomeScreenFragment : Fragment(R.layout.home_src_layout) {
         getData()
     }
 
+    @SuppressLint("SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.M)
     private fun getData() {
         viewModel.getAllData.observe(viewLifecycleOwner) {
@@ -59,6 +61,12 @@ class HomeScreenFragment : Fragment(R.layout.home_src_layout) {
                         color = R.color.green_color
                     )
                     it.data?.let { res ->
+                        /*binding.titleTxt.apply {
+                            show()
+                            setTextColor(activity?.getColorInt(R.color.red_color)!!)
+                            text =
+                                "${AllConstString.getEmojiByUnicode(AllConstString.emg)} ${getText(R.string.lev_txt)}"
+                        }*/
                         setUpToolBar(res as CilentDataResponse)
                         return@let
                     } ?: customMsg(err = "Failed To Load Data")
