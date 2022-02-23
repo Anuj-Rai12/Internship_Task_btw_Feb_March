@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import com.example.relevel.R
 import com.google.android.material.snackbar.Snackbar
 
+const val TAG="ANUJ"
 object AllConstString {
     const val Base = "https://api.bolkarapp.com/"
     const val Get_All_Data = "live/room.json"

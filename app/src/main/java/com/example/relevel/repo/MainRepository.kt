@@ -10,11 +10,12 @@ import javax.inject.Inject
 class MainRepository @Inject constructor(private val api: ApiService) {
 
     fun getAllData() = flow {
-        emit(ResponseSealed.Loading("Please Wait"))
+        emit(ResponseSealed.Loading("Please Wait..."))
+        kotlinx.coroutines.delay(2000)
         val data = try {
             val info = api.getAllData()
             val send = if (info.isSuccessful) {
-                info
+                info.body()
             } else
                 null
             ResponseSealed.Success(send)

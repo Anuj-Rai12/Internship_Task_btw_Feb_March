@@ -1,10 +1,12 @@
 package com.example.relevel.viewModel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.relevel.repo.MainRepository
 import com.example.relevel.utils.Event
 import com.example.relevel.utils.ResponseSealed
+import com.example.relevel.utils.TAG
 import com.example.relevel.utils.isNetworkAvailable
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.cancel
@@ -30,6 +32,7 @@ class MainViewModel @Inject constructor(
         get() = _eventHandle
 
     init {
+        Log.i(TAG, "NetWork: ${application.isNetworkAvailable()}")
         if (application.isNetworkAvailable()) {
             viewModelScope.launch {
                 mainRepository.getAllData().collectLatest {
@@ -41,7 +44,6 @@ class MainViewModel @Inject constructor(
         }
 
     }
-
 
 
     override fun onCleared() {
