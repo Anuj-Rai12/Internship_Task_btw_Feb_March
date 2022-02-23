@@ -34,11 +34,11 @@ fun View.showSandbar(msg: String, length: Int = Snackbar.LENGTH_SHORT, color: In
 
 fun ImageView.loadImage(url: String) {
     this.load(url) {
-        placeholder(R.drawable.blankprofile)
         transformations(
             CircleCropTransformation(),
             //GrayscaleTransformation() // e.t.c
         )
+        placeholder(R.drawable.blankprofile)
         build()
     }
 }

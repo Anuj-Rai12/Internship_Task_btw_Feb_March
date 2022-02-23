@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar_bot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:elevation="5dp">
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/leave_room"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/lev_btn_layout"
+        android:elevation="7dp"
+        android:fontFamily="@font/roboto_medium"
+        android:padding="10dp"
+        android:textAllCaps="false"
+        android:textColor="@color/red_color"
+        tools:text="hello ji" />
+
+    <ImageView
+        android:id="@+id/mic_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end"
+        android:layout_marginEnd="10dp"
+        android:contentDescription="@string/host_txt"
+        android:elevation="7dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_mic_off" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/invite_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/lev_btn_layout"
+        android:backgroundTint="#E9FAFC"
+        android:drawableStart="@drawable/ic_add"
+        android:drawablePadding="4dp"
+        android:elevation="7dp"
+        android:fontFamily="@font/roboto_medium"
+        android:padding="10dp"
+        android:textAllCaps="false"
+        android:textColor="@color/grey_color"
+        tools:text="hello ji" />
+
+
+</androidx.appcompat.widget.Toolbar>

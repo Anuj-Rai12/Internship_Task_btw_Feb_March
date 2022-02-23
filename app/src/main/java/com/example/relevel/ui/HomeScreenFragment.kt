@@ -22,12 +22,18 @@ class HomeScreenFragment : Fragment(R.layout.home_src_layout) {
     private lateinit var binding: HomeSrcLayoutBinding
     private val viewModel: MainViewModel by viewModels()
 
+    @SuppressLint("SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).hide()
         activity?.changeStatusBarColor()
         binding = HomeSrcLayoutBinding.bind(view)
+        binding.bottomBarLayout.apply {
+            leaveRoom.text =
+                "${AllConstString.getEmojiByUnicode(AllConstString.emg_victory)} ${getText(R.string.lev_txt)}"
+            inviteBtn.text = getString(R.string.invite_txt)
+        }
         viewModel.eventHandle.observe(viewLifecycleOwner) {
             it.getContentIfNotHandled()?.let { response ->
                 connectionFailed()
@@ -38,7 +44,7 @@ class HomeScreenFragment : Fragment(R.layout.home_src_layout) {
         getData()
     }
 
-    @SuppressLint("SetTextI18n")
+
     @RequiresApi(Build.VERSION_CODES.M)
     private fun getData() {
         viewModel.getAllData.observe(viewLifecycleOwner) {
@@ -61,12 +67,6 @@ class HomeScreenFragment : Fragment(R.layout.home_src_layout) {
                         color = R.color.green_color
                     )
                     it.data?.let { res ->
-                        /*binding.titleTxt.apply {
-                            show()
-                            setTextColor(activity?.getColorInt(R.color.red_color)!!)
-                            text =
-                                "${AllConstString.getEmojiByUnicode(AllConstString.emg)} ${getText(R.string.lev_txt)}"
-                        }*/
                         setUpToolBar(res as CilentDataResponse)
                         return@let
                     } ?: customMsg(err = "Failed To Load Data")
