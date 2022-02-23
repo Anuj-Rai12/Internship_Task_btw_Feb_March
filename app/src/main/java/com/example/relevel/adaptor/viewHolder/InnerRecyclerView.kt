@@ -28,9 +28,10 @@ class InnerRecyclerView(private val itemClicked: ItemMemberClicked) :
         fun makeData(data: MemberWhile, itemClicked: ItemMemberClicked) {
             binding.apply {
                 if (data.type == null)
-                    profilePic.loadImage(AllConstString.getImageProfileUrl(data.u),20f)
+                    profilePic.loadImage(AllConstString.getImageProfileUrl(data.u), 40f)
                 else
                     profilePic.loadImage(AllConstString.getImageProfileUrl(data.u))
+
                 userNameTxt.text = data.n
                 userMicBtn.isVisible = data.mic
                 data.type?.let { userDescTxt.text = it } ?: userDescTxt.hide()

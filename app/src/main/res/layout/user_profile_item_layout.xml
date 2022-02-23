@@ -8,8 +8,9 @@
 
     <ImageView
         android:id="@+id/profile_pic"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:layout_margin="4dp"
         android:contentDescription="@string/profile_txt"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -55,6 +56,7 @@
         android:textAlignment="center"
         android:textColor="@color/grey_color"
         android:textSize="12sp"
+        android:paddingBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/user_name_txt"
         app:layout_constraintRight_toRightOf="@id/user_name_txt"

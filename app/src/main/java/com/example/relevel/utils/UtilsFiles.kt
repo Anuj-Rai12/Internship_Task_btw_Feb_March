@@ -38,8 +38,10 @@ fun ImageView.loadImage(url: String, round: Float? = null) {
         placeholder(R.drawable.blankprofile)
         crossfade(true)
         crossfade(1000)
-        if (round == null)
+        if (round == null) {
             transformations(CircleCropTransformation())
+            size(110,110)
+        }
         else
             transformations(RoundedCornersTransformation(round))
 
