@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Androidprojects/Relevel/app/src/main/res/drawable/box_layout.xml" value="0.144" />
         <entry key="..\:/Androidprojects/Relevel/app/src/main/res/drawable/circle_for_layout.xml" value="0.144" />
         <entry key="..\:/Androidprojects/Relevel/app/src/main/res/drawable/ic_add.xml" value="0.212" />
         <entry key="..\:/Androidprojects/Relevel/app/src/main/res/drawable/ic_back_arrow.xml" value="0.144" />
@@ -13,9 +14,12 @@
         <entry key="..\:/Androidprojects/Relevel/app/src/main/res/drawable/lev_btn_layout.xml" value="0.144" />
         <entry key="..\:/Androidprojects/Relevel/app/src/main/res/font/roboto_thin.xml" value="0.2568947906026558" />
         <entry key="..\:/Androidprojects/Relevel/app/src/main/res/layout/activity_main.xml" value="0.2234375" />
+        <entry key="..\:/Androidprojects/Relevel/app/src/main/res/layout/audience_item_layout.xml" value="0.2234375" />
         <entry key="..\:/Androidprojects/Relevel/app/src/main/res/layout/bottom_br_layout.xml" value="0.4" />
         <entry key="..\:/Androidprojects/Relevel/app/src/main/res/layout/bottom_btn_layout.xml" value="0.8470394736842105" />
         <entry key="..\:/Androidprojects/Relevel/app/src/main/res/layout/home_src_layout.xml" value="0.2234375" />
+        <entry key="..\:/Androidprojects/Relevel/app/src/main/res/layout/main_member_litem_layout.xml" value="0.2234375" />
+        <entry key="..\:/Androidprojects/Relevel/app/src/main/res/layout/other_user_title_layout.xml" value="0.264" />
         <entry key="..\:/Androidprojects/Relevel/app/src/main/res/layout/tool_br_layout.xml" value="0.2234375" />
         <entry key="..\:/Androidprojects/Relevel/app/src/main/res/layout/user_profile_item_layout.xml" value="0.4" />
       </map>

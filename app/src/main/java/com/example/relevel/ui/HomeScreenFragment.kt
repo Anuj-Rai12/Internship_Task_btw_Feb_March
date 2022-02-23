@@ -67,7 +67,9 @@ class HomeScreenFragment : Fragment(R.layout.home_src_layout) {
                         color = R.color.green_color
                     )
                     it.data?.let { res ->
-                        setUpToolBar(res as CilentDataResponse)
+                        val item = res as CilentDataResponse
+                        binding.versionTxt.text = item.data.version.toString()
+                        setUpToolBar(item)
                         return@let
                     } ?: customMsg(err = "Failed To Load Data")
                 }
