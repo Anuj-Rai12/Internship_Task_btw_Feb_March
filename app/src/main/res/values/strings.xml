@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Bolkar Club</string>
+    <string name="app_txt">#Bolkar Club</string>
     <string name="audince_title">अन्य यूजर जो जुड़ चाहते</string>
     <string name="mem_txt">मेम्बर</string>
     <string name="host_txt">होस्ट</string>

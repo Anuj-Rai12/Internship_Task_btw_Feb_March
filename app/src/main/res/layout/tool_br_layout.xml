@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:elevation="5dp"
+    app:navigationIcon="@drawable/ic_back_arrow">
+
+    <TextView
+        android:id="@+id/tv_toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:drawablePadding="5dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/app_txt"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:drawableEndCompat="@drawable/ic_public" />
+
+
+    <ImageView
+        android:id="@+id/host_img_view"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="end"
+        android:layout_marginEnd="10dp"
+        android:contentDescription="@string/host_txt"
+        tools:src="@drawable/blankprofile" />
+
+
+    <TextView
+        android:id="@+id/total_public"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="20dp"
+        android:drawablePadding="5dp"
+        android:textSize="11sp"
+        app:drawableStartCompat="@drawable/ic_people_12"
+        tools:text="5" />
+
+
+</androidx.appcompat.widget.Toolbar>

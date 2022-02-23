@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Androidprojects/Relevel/app/src/main/res/drawable/ic_back_arrow.xml" value="0.144" />
         <entry key="..\:/Androidprojects/Relevel/app/src/main/res/drawable/ic_host_badge.xml" value="0.144" />
         <entry key="..\:/Androidprojects/Relevel/app/src/main/res/drawable/ic_people_12.xml" value="0.144" />
         <entry key="..\:/Androidprojects/Relevel/app/src/main/res/drawable/ic_public.xml" value="0.144" />
+        <entry key="..\:/Androidprojects/Relevel/app/src/main/res/font/roboto_thin.xml" value="0.2568947906026558" />
         <entry key="..\:/Androidprojects/Relevel/app/src/main/res/layout/activity_main.xml" value="0.2234375" />
         <entry key="..\:/Androidprojects/Relevel/app/src/main/res/layout/home_src_layout.xml" value="0.2234375" />
+        <entry key="..\:/Androidprojects/Relevel/app/src/main/res/layout/tool_br_layout.xml" value="0.2234375" />
       </map>
     </option>
   </component>

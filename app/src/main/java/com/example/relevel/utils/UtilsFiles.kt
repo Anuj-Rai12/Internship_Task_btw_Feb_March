@@ -3,13 +3,17 @@ package com.example.relevel.utils
 import android.app.Activity
 import android.os.Build
 import android.view.View
+import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import coil.load
+import coil.transform.CircleCropTransformation
 import com.example.relevel.R
 import com.google.android.material.snackbar.Snackbar
 
-const val TAG="ANUJ"
+const val TAG = "ANUJ"
+
 object AllConstString {
     const val Base = "https://api.bolkarapp.com/"
     const val Get_All_Data = "live/room.json"
@@ -22,6 +26,18 @@ fun View.showSandbar(msg: String, length: Int = Snackbar.LENGTH_SHORT, color: In
         snackBar.view.setBackgroundColor(it)
     }
     snackBar.show()
+}
+
+
+fun ImageView.loadImage(url: String) {
+    this.load(url) {
+        placeholder(R.drawable.blankprofile)
+        transformations(
+            CircleCropTransformation(),
+            //GrayscaleTransformation() // e.t.c
+        )
+        build()
+    }
 }
 
 

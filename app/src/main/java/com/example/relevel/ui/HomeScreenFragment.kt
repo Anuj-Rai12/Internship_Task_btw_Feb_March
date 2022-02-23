@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.relevel.R
 import com.example.relevel.databinding.HomeSrcLayoutBinding
+import com.example.relevel.model.users.CilentDataResponse
 import com.example.relevel.utils.*
 import com.example.relevel.viewModel.MainViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -57,9 +58,19 @@ class HomeScreenFragment : Fragment(R.layout.home_src_layout) {
                         length = Snackbar.LENGTH_SHORT,
                         color = R.color.green_color
                     )
-                    Log.i(TAG, "getData: ${it.data}")
+                    it.data?.let { res ->
+                        setUpToolBar(res as CilentDataResponse)
+                        return@let
+                    } ?: customMsg(err = "Failed To Load Data")
                 }
             }
+        }
+    }
+
+    private fun setUpToolBar(response: CilentDataResponse) {
+        binding.toolbarLayout.apply {
+            totalPublic.text = response.data.totalMembers.toString()
+            hostImgView.loadImage(AllConstString.getImageProfileUrl(response.data.host.u))
         }
     }
 

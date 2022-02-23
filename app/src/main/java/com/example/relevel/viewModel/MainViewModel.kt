@@ -10,7 +10,6 @@ import com.example.relevel.utils.TAG
 import com.example.relevel.utils.isNetworkAvailable
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject

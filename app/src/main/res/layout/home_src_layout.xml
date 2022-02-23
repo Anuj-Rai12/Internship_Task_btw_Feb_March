@@ -6,11 +6,24 @@
     android:layout_height="match_parent"
     tools:context="com.example.relevel.ui.HomeScreenFragment">
 
+
+    <include
+        android:id="@+id/toolbar_layout"
+        layout="@layout/tool_br_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/main_recycle_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/toolbar_layout"
+        app:layout_constraintRight_toRightOf="@id/toolbar_layout"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_layout"
         tools:visibility="visible" />
 
 
