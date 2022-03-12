@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.relevel.model.MainVideoDataCls
 import com.example.relevel.repo.VideoRepositoryImpl
 import com.example.relevel.utils.ApiResponse
 import com.example.relevel.utils.Event
@@ -26,6 +27,9 @@ class MainViewModels @Inject constructor(
     val events: LiveData<Event<String>>
         get() = _events
 
+    private val _videoItem = MutableLiveData<MutableList<String>>()
+    val videoItem: LiveData<MutableList<String>>
+        get() = _videoItem
 
     private val _data = MutableLiveData<ApiResponse<out Any?>>()
     val data: LiveData<ApiResponse<out Any?>>
@@ -36,6 +40,15 @@ class MainViewModels @Inject constructor(
             viewModelScope.launch {
                 repositoryImpl.getVideoResponse().collectLatest {
                     _data.postValue(it)
+                    if (it is ApiResponse.Success) {
+                        val itemVideo = mutableListOf<String>()
+                        (it.data as MainVideoDataCls?)?.let { res ->
+                            res.msg.forEach { item ->
+                                itemVideo.add(item.video)
+                            }
+                        }
+                        _videoItem.postValue(itemVideo)
+                    }
                 }
             }
         } else {

@@ -27,7 +27,9 @@ class MainFragment : Fragment(R.layout.main_fragments_layout) {
         }
 
         getData()
-
+        viewModel.videoItem.observe(viewLifecycleOwner){
+            Log.i(TAG, "onViewCreated: ${it.size}")
+        }
     }
 
     private fun getData() {
