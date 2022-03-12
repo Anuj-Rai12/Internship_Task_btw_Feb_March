@@ -13,10 +13,10 @@ const val TAG = "ANUJ"
 
 class UtilsFiles {
     object ApiService {
-        const val BASE_URL = "http://fatema.takatakind.com"
-        const val END_POINT = "/app_api/index.php"
+        const val BASE_URL = "http://fatema.takatakind.com/"
+        const val END_POINT = "app_api/index.php"
     }
-
+//http://fatema.takatakind.com/app_api/index.php?p=showAllVideos
 }
 
 fun View.showSandbar(msg: String, length: Int = Snackbar.LENGTH_SHORT) {

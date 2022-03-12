@@ -10,10 +10,10 @@ import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class VideoRepositoryImpl @Inject constructor(private val api: VideoApiService) : VideoRepository {
-    override fun getVideoResponse() = flow {
+    override fun getVideoResponse(query: String) = flow {
         emit(ApiResponse.Loading("Please Wait"))
         val data = try {
-            val info = api.getVideoToStream()
+            val info = api.getVideoToStream(query)
             val res = if (info.isSuccessful) {
                 info.body()
             } else {

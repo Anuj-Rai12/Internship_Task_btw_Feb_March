@@ -1,15 +1,13 @@
 package com.example.relevel.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.relevel.R
 import com.example.relevel.databinding.MainFragmentsLayoutBinding
-import com.example.relevel.utils.ApiResponse
-import com.example.relevel.utils.hide
-import com.example.relevel.utils.show
-import com.example.relevel.utils.showSandbar
+import com.example.relevel.utils.*
 import com.example.relevel.viewmodels.MainViewModels
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,6 +35,7 @@ class MainFragment : Fragment(R.layout.main_fragments_layout) {
             when (it) {
                 is ApiResponse.Error -> {
                     hidePb()
+                    Log.i(TAG, "getData: ${it.exception?.localizedMessage}\n\n\n ${it.exception}")
                     binding.delTxt.text = it.exception?.localizedMessage
                 }
                 is ApiResponse.Loading -> {

@@ -8,5 +8,5 @@ import retrofit2.http.Query
 
 interface VideoApiService {
     @GET(UtilsFiles.ApiService.END_POINT)
-    fun getVideoToStream(@Query("q") query: String = "showAllVideos"): Response<MainVideoDataCls>
+    suspend fun getVideoToStream(@Query("p") query: String): Response<MainVideoDataCls>
 }
