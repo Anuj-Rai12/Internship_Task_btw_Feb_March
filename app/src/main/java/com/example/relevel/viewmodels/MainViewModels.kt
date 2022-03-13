@@ -27,8 +27,8 @@ class MainViewModels @Inject constructor(
     val events: LiveData<Event<String>>
         get() = _events
 
-    private val _videoItem = MutableLiveData<MutableList<String>>()
-    val videoItem: LiveData<MutableList<String>>
+    private val _videoItem = MutableLiveData<ArrayList<String>>()
+    val videoItem: LiveData<ArrayList<String>>
         get() = _videoItem
 
     private val _data = MutableLiveData<ApiResponse<out Any?>>()
@@ -41,7 +41,7 @@ class MainViewModels @Inject constructor(
                 repositoryImpl.getVideoResponse().collectLatest {
                     _data.postValue(it)
                     if (it is ApiResponse.Success) {
-                        val itemVideo = mutableListOf<String>()
+                        val itemVideo = ArrayList<String>()
                         (it.data as MainVideoDataCls?)?.let { res ->
                             res.msg.forEach { item ->
                                 itemVideo.add(item.video)

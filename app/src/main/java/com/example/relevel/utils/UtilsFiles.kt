@@ -15,6 +15,7 @@ class UtilsFiles {
     object ApiService {
         const val BASE_URL = "http://fatema.takatakind.com/"
         const val END_POINT = "app_api/index.php"
+        const val VIDEO_LIST="video_item_list"
     }
 //http://fatema.takatakind.com/app_api/index.php?p=showAllVideos
 }
