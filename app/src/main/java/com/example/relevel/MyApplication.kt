@@ -9,16 +9,25 @@ import dagger.hilt.android.HiltAndroidApp
 @HiltAndroidApp
 class MyApplication : Application() {
     companion object {
-        lateinit var simpleCache: SimpleCache
-        const val exoPlayerCacheSize: Long = 90 * 1024 * 1024
-        lateinit var leastRecentlyUsedCacheEvictor: LeastRecentlyUsedCacheEvictor
-        lateinit var exoDatabaseProvider: ExoDatabaseProvider
+        var simpleCache: SimpleCache? = null
+        var leastRecentlyUsedCacheEvictor: LeastRecentlyUsedCacheEvictor? = null
+        var exoDatabaseProvider: ExoDatabaseProvider? = null
+        var exoPlayerCacheSize: Long = 90 * 1024 * 1024
     }
 
     override fun onCreate() {
         super.onCreate()
-        leastRecentlyUsedCacheEvictor = LeastRecentlyUsedCacheEvictor(exoPlayerCacheSize)
-        exoDatabaseProvider = ExoDatabaseProvider(this)
-        simpleCache = SimpleCache(cacheDir, leastRecentlyUsedCacheEvictor, exoDatabaseProvider)
+        if (leastRecentlyUsedCacheEvictor == null) {
+            leastRecentlyUsedCacheEvictor = LeastRecentlyUsedCacheEvictor(exoPlayerCacheSize)
+        }
+
+        if (exoDatabaseProvider == null) {
+            exoDatabaseProvider = ExoDatabaseProvider(this)
+        }
+
+        if (simpleCache == null) {
+            simpleCache =
+                SimpleCache(cacheDir, leastRecentlyUsedCacheEvictor!!, exoDatabaseProvider!!)
+        }
     }
 }

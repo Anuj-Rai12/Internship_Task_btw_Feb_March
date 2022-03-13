@@ -34,7 +34,7 @@ class MainRecycleView(private val context: Context, private val itemClicked: ite
         private lateinit var defaultDataSourceFactory: DefaultDataSourceFactory
         private lateinit var cacheDataSourceFactory: DataSource.Factory
         private lateinit var simpleExoPlayer: SimpleExoPlayer
-        private val simpleCache: SimpleCache = MyApplication.simpleCache
+        private val simpleCache: SimpleCache? = MyApplication.simpleCache
 
         fun setData(data: Msg, itemClicked: itemClicked, context: Context) {
             initPlayer(data.video, context)
@@ -50,7 +50,7 @@ class MainRecycleView(private val context: Context, private val itemClicked: ite
             )
 
             cacheDataSourceFactory = CacheDataSource.Factory()
-                .setCache(simpleCache)
+                .setCache(simpleCache!!)
                 .setUpstreamDataSourceFactory(httpDataSourceFactory)
                 .setFlags(CacheDataSource.FLAG_IGNORE_CACHE_ON_ERROR)
 

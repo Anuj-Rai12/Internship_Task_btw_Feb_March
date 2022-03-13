@@ -22,7 +22,7 @@ class VideoPreLoadingService :
     private lateinit var httpDataSourceFactory: HttpDataSource.Factory
     private lateinit var defaultDataSourceFactory: DefaultDataSourceFactory
     private lateinit var cacheDataSourceFactory: CacheDataSource
-    private val simpleCache: SimpleCache = MyApplication.simpleCache
+    private val simpleCache: SimpleCache? = MyApplication.simpleCache
 
     override fun onHandleIntent(intent: Intent?) {
         mContext = applicationContext
@@ -35,7 +35,7 @@ class VideoPreLoadingService :
         )
 
         cacheDataSourceFactory = CacheDataSource.Factory()
-            .setCache(simpleCache)
+            .setCache(simpleCache!!)
             .setUpstreamDataSourceFactory(httpDataSourceFactory)
             .createDataSource()
 
