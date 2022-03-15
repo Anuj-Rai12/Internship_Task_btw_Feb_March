@@ -6,6 +6,7 @@ import android.content.Intent
 import android.net.Uri
 import android.util.Log
 import com.example.relevel.MyApplication
+import com.example.relevel.utils.TAG
 import com.example.relevel.utils.UtilsFiles
 import com.google.android.exoplayer2.upstream.*
 import com.google.android.exoplayer2.upstream.cache.*
@@ -13,7 +14,6 @@ import kotlinx.coroutines.*
 
 class VideoPreLoadingService :
     IntentService(VideoPreLoadingService::class.java.simpleName) {
-    private val TAG = "VideoPreLoadingService"
 
     private lateinit var mContext: Context
     private var cachingJob: Job? = null
